@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14102b">
+<title>Kahush APK Forge</title>
+<style>
+:root{--bg:#14102b;--panel:#1f1942;--line:#3a3070;--ink:#f3efff;--mute:#a79fd0;--gold:#ffc83d;--cyan:#38e1ff;--pink:#ff4fa3;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:radial-gradient(900px 500px at 80% -10%,#3b2a8a55,transparent),var(--bg);color:var(--ink);font:16px/1.5 "Trebuchet MS",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:720px;margin:0 auto;padding:18px 16px 60px}
+.logo{display:flex;align-items:center;gap:12px;margin:6px 0 4px}
+.mark{width:54px;height:54px;border-radius:16px;background:conic-gradient(from 200deg,var(--gold),var(--pink),var(--cyan),var(--gold));display:grid;place-items:center;font:900 30px Georgia,serif;color:#14102b;animation:spin 9s linear infinite paused;box-shadow:0 0 28px #ffc83d55}
+.mark b{animation:none}
+@keyframes spin{to{filter:hue-rotate(360deg)}}
+.mark{animation-play-state:running}
+h1{font:900 28px/1.1 Georgia,serif;margin:0;letter-spacing:.5px}
+h1 small{display:block;font:600 13px "Trebuchet MS",sans-serif;color:var(--gold);letter-spacing:2px}
+.tribute{color:var(--mute);margin:10px 0 18px;font-size:15px}
+.tribute em{color:var(--gold);font-style:normal;font-weight:700}
+.stage{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin-bottom:18px}
+.phone{width:150px;height:290px;border-radius:26px;border:3px solid var(--line);background:#0c0920;padding:10px 8px;position:relative;box-shadow:0 12px 40px #0008}
+.phone:before{content:"";position:absolute;top:7px;left:50%;width:44px;height:5px;border-radius:5px;background:var(--line);transform:translateX(-50%)}
+.screen{margin-top:14px;height:240px;border-radius:14px;background:linear-gradient(160deg,#2c2266,#0f0b2a);padding:12px 6px;display:grid;grid-template-columns:repeat(3,1fr);align-content:start;gap:10px 4px;text-align:center;font-size:9px}
+.ghost{width:34px;height:34px;border-radius:10px;background:#ffffff14;margin:0 auto 3px}
+.app canvas{width:38px;height:38px;border-radius:10px;display:block;margin:0 auto 3px;animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.app span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stats p{margin:0 0 8px;color:var(--mute)}
+.stats strong{color:var(--ink)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px}
+h2{font:700 18px Georgia,serif;margin:0 0 10px}
+label{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
+input[type=text],select,input[type=color]{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#120e2c;color:var(--ink);font:inherit}
+input[type=color]{height:46px;padding:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.drop{display:block;border:2px dashed var(--cyan);border-radius:16px;padding:22px 12px;text-align:center;cursor:pointer;color:var(--cyan);font-weight:700;margin:0}
+.drop input{display:none}
+.drop:active{background:#38e1ff14}
+button{width:100%;padding:14px;border:0;border-radius:14px;font:800 16px "Trebuchet MS",sans-serif;cursor:pointer;margin-top:10px;color:#14102b;background:linear-gradient(90deg,var(--gold),#ffa43d)}
+button.alt{background:linear-gradient(90deg,var(--cyan),#6f8bff)}
+button.ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:disabled{opacity:.4}
+button:focus-visible,input:focus-visible,select:focus-visible,.drop:focus-within{outline:3px solid var(--pink);outline-offset:2px}
+ul.files{list-style:none;padding:0;margin:10px 0 0;max-height:150px;overflow:auto;font-size:13px;color:var(--mute)}
+ul.files li{padding:3px 0;border-bottom:1px solid #ffffff12;word-break:break-all}
+#log{font:12px/1.5 ui-monospace,monospace;color:#9be7ff;white-space:pre-wrap;max-height:160px;overflow:auto;margin:0}
+iframe{width:100%;height:320px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:10px;display:none}
+ol{padding-left:20px;color:var(--mute);margin:6px 0}
+ol b{color:var(--ink)}
+.note{font-size:13px;color:var(--mute);margin-top:8px}
+footer{text-align:center;color:var(--mute);font-size:13px;margin-top:20px}
+footer b{color:var(--gold)}
+@media (max-width:420px){.stage{grid-template-columns:120px 1fr}.phone{width:120px;height:240px}.screen{height:192px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">
+    <div class="mark"><b>$</b></div>
+    <h1>Kahush APK Forge<small>A TRIBUTE TO KAHUSH DEVELOPERS</small></h1>
+  </div>
+  <p class="tribute">Turn your HTML projects into real apps for your phone. Built by <em>Kahush Developers</em>: Build, Learn, Earn.</p>
+
+  <div class="stage">
+    <div class="phone"><div class="screen">
+      <div class="app"><canvas id="pv" width="76" height="76"></canvas><span id="pvName">My App</span></div>
+      <div><div class="ghost"></div></div><div><div class="ghost"></div></div>
+      <div><div class="ghost"></div></div><div><div class="ghost"></div></div><div><div class="ghost"></div></div>
+    </div></div>
+    <div class="stats">
+      <p><strong id="cFiles">0</strong> files added</p>
+      <p><strong id="cSize">0 KB</strong> total size</p>
+      <p>Your app opens <strong id="cEntry">no file yet</strong> first.</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>1. Add your project files</h2>
+    <label class="drop" tabindex="0">Tap to choose files from your phone
+      <input id="pick" type="file" multiple>
+    </label>
+    <p class="note">Pick every file your app needs: the HTML, CSS, JavaScript, images, sounds and fonts. Select them all at once. Keep the same file names your HTML uses.</p>
+    <ul class="files" id="list"></ul>
+    <label for="entry">Start page</label>
+    <select id="entry"></select>
+    <button class="ghostbtn" id="btnPrev" disabled>Preview start page</button>
+    <iframe id="frame" sandbox="allow-scripts allow-forms allow-modals"></iframe>
+  </section>
+
+  <section>
+    <h2>2. Name your app</h2>
+    <label for="name">App name</label>
+    <input id="name" type="text" value="My Kahush App" autocomplete="off">
+    <div class="row">
+      <div><label for="pkg">Package ID</label><input id="pkg" type="text" value="com.kahush.myapp" autocapitalize="none" autocomplete="off"></div>
+      <div><label for="ver">Version</label><input id="ver" type="text" value="1.0" autocomplete="off"></div>
+    </div>
+    <div class="row">
+      <div><label for="color">App colour</label><input id="color" type="color" value="#ffc83d"></div>
+      <div><label>App icon (optional)</label>
+        <label class="drop" style="padding:11px;margin:0">Choose image<input id="icon" type="file" accept="image/*"></label></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Build</h2>
+    <button id="btnPwa" disabled>Make installable app (works now)</button>
+    <button class="alt" id="btnApk" disabled>Make APK project (real .apk)</button>
+    <p class="note">Your apps can open the phone’s file picker for uploads, run offline, and keep their saved data.</p>
+    <pre id="log">Ready. Add your files to begin.</pre>
+  </section>
+
+  <section>
+    <h2>How to install</h2>
+    <p class="note" style="margin-top:0"><b style="color:var(--ink)">Installable app (fastest):</b></p>
+    <ol>
+      <li>Download the app zip.</li>
+      <li>Upload it to <b>app.netlify.com/drop</b> (it unzips itself).</li>
+      <li>Open the link in Chrome and tap <b>Install app</b>.</li>
+    </ol>
+    <p class="note"><b style="color:var(--ink)">Real APK:</b> a browser can’t compile Android code, so this makes a ready project with an automatic builder.</p>
+    <ol>
+      <li>Download the APK project zip and unzip it.</li>
+      <li>Upload everything, including the <b>.github</b> folder, to a new GitHub repository.</li>
+      <li>Open the <b>Actions</b> tab, wait for “Build APK”, then download <b>app-apk</b>.</li>
+      <li>Unzip it, tap the <b>.apk</b> file and allow installs from your browser.</li>
+    </ol>
+  </section>
+  <footer>Forged with pride by <b>KAHU$H Developers</b></footer>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const enc=new TextEncoder(), dec=new TextDecoder();
+let files=[], iconImg=null;
+
+function log(m){const l=$('log');l.textContent+=(l.textContent?'\n':'')+m;l.scrollTop=l.scrollHeight}
+function fmt(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function slug(s){return (s.toLowerCase().replace(/[^a-z0-9]+/g,'')||'app')}
+
+/* ---------- ZIP (store) ---------- */
+const crcT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=crcT[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function makeZip(list){
+  const parts=[],cen=[];let off=0;
+  const d=new Date(),time=(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date=((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate();
+  for(const f of list){
+    const nm=enc.encode(f.name),data=f.data,crc=crc32(data);
+    const h=new DataView(new ArrayBuffer(30));
+    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);
+    h.setUint16(10,time,true);h.setUint16(12,date,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);h.setUint16(26,nm.length,true);h.setUint16(28,0,true);
+    parts.push(h.buffer,nm,data);
+    const c=new DataView(new ArrayBuffer(46));
+    c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);
+    c.setUint16(12,time,true);c.setUint16(14,date,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,nm.length,true);c.setUint32(42,off,true);
+    cen.push(c.buffer,nm);
+    off+=30+nm.length+data.length;
+  }
+  let cs=0;cen.forEach(p=>cs+=p.byteLength);
+  const e=new DataView(new ArrayBuffer(22));
+  e.setUint32(0,0x06054b50,true);e.setUint16(8,list.length,true);e.setUint16(10,list.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+  return new Blob([...parts,...cen,e.buffer],{type:'application/zip'});
+}
+function save(blob,name){
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);
+}
+
+/* ---------- icon ---------- */
+function drawIcon(c,size){
+  const x=c.getContext('2d');c.width=c.height=size;
+  const col=$('color').value;
+  if(iconImg){
+    x.fillStyle=col;x.fillRect(0,0,size,size);
+    const s=Math.max(size/iconImg.width,size/iconImg.height),w=iconImg.width*s,h=iconImg.height*s;
+    x.drawImage(iconImg,(size-w)/2,(size-h)/2,w,h);
+  }else{
+    const g=x.createLinearGradient(0,0,size,size);g.addColorStop(0,col);g.addColorStop(1,'#14102b');
+    x.fillStyle=g;x.fillRect(0,0,size,size);
+    x.fillStyle='#fff';x.textAlign='center';x.textBaseline='middle';
+    x.font='900 '+Math.round(size*.55)+'px Georgia,serif';
+    x.fillText(($('name').value.trim()[0]||'K').toUpperCase(),size/2,size/2+size*.03);
+  }
+}
+function iconBytes(size){
+  return new Promise(res=>{const c=document.createElement('canvas');drawIcon(c,size);
+    c.toBlob(async b=>res(new Uint8Array(await b.arrayBuffer())),'image/png')});
+}
+function refreshPreview(){
+  drawIcon($('pv'),76);$('pvName').textContent=$('name').value||'My App';
+}
+
+/* ---------- files ---------- */
+$('pick').addEventListener('change',async e=>{
+  const sel=[...e.target.files];
+  for(const f of sel){
+    const path=(f.webkitRelativePath||f.name).replace(/\\/g,'/');
+    const data=new Uint8Array(await f.arrayBuffer());
+    files=files.filter(x=>x.path!==path);files.push({path,data});
+  }
+  e.target.value='';
+  renderFiles();
+});
+function renderFiles(){
+  $('list').innerHTML=files.map(f=>'<li>'+esc(f.path)+' ('+fmt(f.data.length)+')</li>').join('');
+  $('cFiles').textContent=files.length;
+  $('cSize').textContent=fmt(files.reduce((a,f)=>a+f.data.length,0));
+  const htmls=files.filter(f=>/\.html?$/i.test(f.path)).map(f=>f.path);
+  const cur=$('entry').value;
+  $('entry').innerHTML=htmls.map(p=>'<option>'+esc(p)+'</option>').join('');
+  const pick=htmls.includes(cur)?cur:(htmls.find(p=>/(^|\/)index\.html?$/i.test(p))||htmls[0]||'');
+  if(pick)$('entry').value=pick;
+  $('cEntry').textContent=pick||'no file yet';
+  const ok=!!pick;
+  $('btnPwa').disabled=$('btnApk').disabled=$('btnPrev').disabled=!ok;
+  if(!ok&&files.length)log('Add at least one .html file to use as the start page.');
+}
+$('entry').addEventListener('change',()=>$('cEntry').textContent=$('entry').value);
+$('icon').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const img=new Image();img.onload=()=>{iconImg=img;refreshPreview()};img.src=URL.createObjectURL(f);
+});
+$('name').addEventListener('input',()=>{
+  $('pkg').value='com.kahush.'+slug($('name').value);refreshPreview();
+});
+$('color').addEventListener('input',refreshPreview);
+
+$('btnPrev').addEventListener('click',()=>{
+  const f=files.find(x=>x.path===$('entry').value);if(!f)return;
+  const fr=$('frame');fr.style.display='block';fr.srcdoc=dec.decode(f.data);
+  log('Preview shows the start page only. Linked files work once built.');
+});
+
+/* ---------- build helpers ---------- */
+function cleanPkg(){
+  let p=$('pkg').value.trim().toLowerCase().replace(/[^a-z0-9_.]/g,'');
+  p=p.split('.').filter(Boolean).map(s=>/^[0-9_]/.test(s)?'a'+s:s).join('.');
+  if(!p.includes('.'))p='com.kahush.'+(p||'app');
+  return p;
+}
+const encPath=p=>p.split('/').map(encodeURIComponent).join('/');
+
+/* ---------- PWA package ---------- */
+$('btnPwa').addEventListener('click',async()=>{
+  try{
+    const name=$('name').value.trim()||'App',entry=$('entry').value,color=$('color').value;
+    log('Building installable app...');
+    const out=files.map(f=>({name:f.path,data:f.data}));
+    const inject='<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="'+color+'"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="apple-touch-icon" href="icon-192.png"><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}<\/script>';
+    const depth=entry.split('/').length-1,pre='../'.repeat(depth);
+    const inj=inject.replace('href="manifest.webmanifest"','href="'+pre+'manifest.webmanifest"').replace('href="icon-192.png"','href="'+pre+'icon-192.png"').replace('register("sw.js")','register("'+pre+'sw.js")');
+    out.forEach(o=>{if(o.name===entry){
+      let t=dec.decode(o.data);
+      t=/<head[^>]*>/i.test(t)?t.replace(/<head[^>]*>/i,m=>m+inj):inj+t;
+      o.data=enc.encode(t);
+    }});
+    const list=[...files.map(f=>f.path),'icon-192.png','icon-512.png','manifest.webmanifest'];
+    const manifest={name,short_name:name.slice(0,12),start_url:'./'+encPath(entry),scope:'./',display:'standalone',background_color:'#14102b',theme_color:color,icons:[{src:'icon-192.png',sizes:'192x192',type:'image/png'},{src:'icon-512.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]};
+    const sw='const C="app-v1",L='+JSON.stringify(list.map(p=>'./'+encPath(p)))+';\nself.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(L)));self.skipWaiting()});\nself.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));\nself.addEventListener("fetch",e=>{e.respondWith(caches.match(e.request,{ignoreSearch:true}).then(r=>r||fetch(e.request)))});\n';
+    out.push({name:'manifest.webmanifest',data:enc.encode(JSON.stringify(manifest,null,2))});
+    out.push({name:'sw.js',data:enc.encode(sw)});
+    out.push({name:'icon-192.png',data:await iconBytes(192)});
+    out.push({name:'icon-512.png',data:await iconBytes(512)});
+    if(entry!=='index.html')out.push({name:'index.html',data:enc.encode('<meta http-equiv="refresh" content="0;url='+encPath(entry)+'">')});
+    save(makeZip(out),slug(name)+'-installable-app.zip');
+    log('Done: '+slug(name)+'-installable-app.zip');
+  }catch(err){log('Error: '+err.message)}
+});
+
+/* ---------- APK project ---------- */
+$('btnApk').addEventListener('click',async()=>{
+  try{
+    const name=$('name').value.trim()||'App',entry=$('entry').value,pkg=cleanPkg(),ver=$('ver').value.trim()||'1.0';
+    log('Building Android project for '+pkg+'...');
+    const T=(n,s)=>({name:n,data:enc.encode(s)});
+    const javaPath='app/src/main/java/'+pkg.replace(/\./g,'/')+'/MainActivity.java';
+    const java=`package ${pkg};
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.webkit.PermissionRequest;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MainActivity extends Activity {
+    private WebView web;
+    private ValueCallback<Uri[]> chooser;
+
+    @Override
+    protected void onCreate(Bundle state) {
+        super.onCreate(state);
+        web = new WebView(this);
+        setContentView(web);
+        WebSettings s = web.getSettings();
+        s.setJavaScriptEnabled(true);
+        s.setDomStorageEnabled(true);
+        s.setDatabaseEnabled(true);
+        s.setAllowFileAccess(true);
+        s.setAllowContentAccess(true);
+        s.setAllowFileAccessFromFileURLs(true);
+        s.setAllowUniversalAccessFromFileURLs(true);
+        s.setMediaPlaybackRequiresUserGesture(false);
+        web.setWebViewClient(new WebViewClient());
+        web.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onShowFileChooser(WebView v, ValueCallback<Uri[]> cb, FileChooserParams p) {
+                if (chooser != null) chooser.onReceiveValue(null);
+                chooser = cb;
+                try {
+                    startActivityForResult(p.createIntent(), 1);
+                } catch (Exception e) {
+                    chooser = null;
+                    return false;
+                }
+                return true;
+            }
+            @Override
+            public void onPermissionRequest(final PermissionRequest r) {
+                runOnUiThread(() -> r.grant(r.getResources()));
+            }
+        });
+        web.loadUrl("file:///android_asset/www/${encPath(entry)}");
+    }
+
+    @Override
+    protected void onActivityResult(int req, int res, Intent data) {
+        if (req == 1 && chooser != null) {
+            chooser.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(res, data));
+            chooser = null;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+    }
+}
+`;
+    const manifest=`<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:label="${esc(name)}"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+`;
+    const appGradle=`plugins { id 'com.android.application' }
+android {
+    namespace '${pkg}'
+    compileSdk 34
+    defaultConfig {
+        applicationId '${pkg}'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '${ver.replace(/'/g,'')}'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+`;
+    const workflow=`name: Build APK
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.9
+      - run: gradle assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-apk
+          path: app/build/outputs/apk/debug/*.apk
+`;
+    const readme=`${name}: Android project made with Kahush APK Forge (a tribute to KAHU$H Developers)
+
+Build a real APK without a computer:
+1. Upload ALL files and folders (including .github) to a new GitHub repository.
+2. Open the Actions tab and wait for "Build APK" to finish.
+3. Download the app-apk artifact, unzip it and install the .apk.
+
+Or open this folder in Android Studio and press Run.
+Your web files live in app/src/main/assets/www
+`;
+    const out=[
+      T('.github/workflows/build.yml',workflow),
+      T('README.txt',readme),
+      T('settings.gradle',"pluginManagement {\n    repositories { google(); mavenCentral(); gradlePluginPortal() }\n}\ndependencyResolutionManagement {\n    repositories { google(); mavenCentral() }\n}\nrootProject.name = '"+slug(name)+"'\ninclude ':app'\n"),
+      T('build.gradle',"plugins { id 'com.android.application' version '8.5.2' apply false }\n"),
+      T('gradle.properties','org.gradle.jvmargs=-Xmx2g\nandroid.useAndroidX=false\n'),
+      T('app/build.gradle',appGradle),
+      T('app/src/main/AndroidManifest.xml',manifest),
+      T(javaPath,java),
+      {name:'app/src/main/res/mipmap-xxxhdpi/ic_launcher.png',data:await iconBytes(192)}
+    ];
+    files.forEach(f=>out.push({name:'app/src/main/assets/www/'+f.path,data:f.data}));
+    save(makeZip(out),slug(name)+'-android-project.zip');
+    log('Done: '+slug(name)+'-android-project.zip\nUpload it to GitHub to get your .apk.');
+  }catch(err){log('Error: '+err.message)}
+});
+
+refreshPreview();
+</script>
+</body>
+</html>
